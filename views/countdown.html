@@ -1,0 +1,136 @@
+﻿<style>
+    .cd-clock {
+        margin-top:10px;
+        font-size: 60px;
+        background: #eee;
+        border: solid 1px black;
+        text-align: center;
+    }
+
+ #clock{
+ position: absolute;
+top: 32%;
+left: 40%;
+margin: auto;
+width: 70px;
+height: 70px;
+background-color: #fefefe;
+border: solid 5px #1f76a3;
+border-radius: 50%;
+}
+#clock .hours{
+	position: absolute;
+    width: 2px;
+    height: 18px;
+    top: 58%;
+    left: 50%;
+    margin: -26px 0 0 -1px;
+    background-color: #333;
+    transform-origin: bottom center;
+}
+#clock .minutes{
+	position: absolute;
+    width: 2px;
+    height: 22px;
+    top: 65%;
+    left: 50%;
+    margin: -33px 0 0 -1px;
+    background-color: #333;
+    transform-origin: bottom center;
+}
+#clock .seconds{
+    position:absolute;
+	width: 1px;
+height: 23px;
+top: 63%;
+left: 51%;
+    margin: -33px 0 0 -1px;
+
+	background-color: #fe0505;
+	transform-origin: bottom center;
+	animation: spin 60s infinite steps(60);
+    -webkit-transition: spin 60s infinite steps(60);
+}
+ @keyframes spin {
+        from {
+            transform:rotate(0deg);
+        }
+        to {
+            transform:rotate(360deg);
+        }
+    }
+
+ #clock .point{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 4px;
+	height: 7px;
+	margin: -7px 0 0 -2px;
+	background-color: #b7b8ba;
+}
+ #clock .point:nth-child(1){
+	transform: translateY(-24px);
+}
+#clock .point:nth-child(2){
+	transform: translateX(-24px) rotate(90deg);
+}
+#clock .point:nth-child(3){
+	transform: translateY(24px);
+}
+#clock .point:nth-child(4){
+	transform: translateX(24px) rotate(90deg);
+}
+</style>
+
+<div ng-controller="MainCtrlCountdown as ctrl" class="lm-padding-lg">
+    <div class="lm-width-full ng-scope" style="height:calc(80% - 17px); display:table; padding-bottom:75px">
+        <div class="l-center-text" style="">
+            <span class="show ng-binding" style="font-size:27px;color: #5c5c5c;margin: 8px auto 18px; text-align: center; font-weight: bold">Timer</span>
+            <div id="clock">
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="hours" style="transform: rotate(139.5deg);"></div>
+                <div class="minutes" style="transform: rotate(234deg);"></div>
+                <div class="seconds" style="transform: rotate(0deg);"></div>
+                <div class="center"></div>
+            </div>
+            
+            <!--<span  class="show ng-binding" style="font-size: 26px;color: #5c5c5c; margin-top: 10px;">{{ctrl.asgnobj.cytm}}12<sub style="font-size: 14px; vertical-align: baseline">{{ctrl.durationTime}}</sub></span>-->
+        </div> 
+        <br />
+
+    </div>
+    <hr />
+    <div class="row cd-clock">
+
+           <div class="twelve columns  header-detail" ng-show="!ctrl.stopTimer">
+                <span class="cd-sec">{{ctrl.cdtime.min}} : </span><span class="cd-min">{{ ctrl.cdtime.sec }}</span>
+            </div> 
+            <div class="twelve columns  header-detail" ng-show="ctrl.stopTimer">
+              {{ctrl.stopTimer}}
+            </div> 
+
+    </div>
+
+
+
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" class="svg-icons ng-scope" style="display: none">
+    <symbol id="infor-performance-icon" viewBox="0 0 33 33">
+        <circle fill="#368ac0" cx="16.516" cy="16.779" r="16.5"></circle>
+        <g>
+            <path fill="none" d="M16.516,5.263C10.156,5.263,5,10.419,5,16.779s5.156,11.516,11.516,11.516s11.516-5.156,11.516-11.516
+               C28.032,10.418,22.876,5.263,16.516,5.263z M21.97,24.131l-7.061-6.283l-0.131-0.988l0.505-9.442h1.467l0.495,9.31l5.84,6.258
+               L21.97,24.131z"></path>
+            <polygon fill="#FFFFFF" points="16.75,7.417 15.283,7.417 14.778,16.86 14.909,17.848 21.97,24.131 23.085,22.985 17.245,16.727
+               "></polygon>
+            <path fill="#FFFFFF" d="M16.516,2.96c-7.631,0-13.819,6.188-13.819,13.819s6.188,13.819,13.819,13.819s13.819-6.188,13.819-13.819
+               S24.147,2.96,16.516,2.96z M16.516,28.295C10.156,28.295,5,23.139,5,16.779S10.156,5.263,16.516,5.263s11.516,5.155,11.516,11.516
+               C28.032,23.139,22.876,28.295,16.516,28.295z"></path>
+        </g>
+    </symbol>
+</svg>

@@ -1,0 +1,48 @@
+{
+  "widgetId": "infor.LN.Countdown",
+  "type": "inline",
+  "name": "Countdown",
+  "version": "1.0",
+  "category": "application",
+  "settingsUI": "metadata",
+	"settings": [
+    {
+      "name": "messageType",
+      "type": "string",
+      "defaultValue": "inforCommunication",
+      "labelId": "Message Type"
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "defaultValue": "Prefs",
+      "labelId": "Username"
+    },
+    {
+      "name": "password",
+      "type": "password",
+      "defaultValue": "!nfor08",
+      "labelId": "Password"
+    },
+    {
+      "name": "webservice",
+      "type": "string",
+      "defaultValue": "/LN/c4ws/services/GenericQuery/LN2014_1_121",
+      "labelId": "Generic Query Web Service URL"
+    },
+    	{
+			"name": "company",
+			"type": "string",
+			"defaultValue": "121",
+			"labelId": "Company"
+		}
+	],
+	"localization": {
+		"en-US": {
+			"widgetTitle": "COUNTDOWN",
+      "widgetDescription": "Receive taktime from LN through ION API",
+      "nodata": "No data has been received yet",
+      "error": "An unexpected error occurred"
+		}
+	}
+}
